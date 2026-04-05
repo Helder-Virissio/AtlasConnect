@@ -1,27 +1,38 @@
-// Seleciona os elementos
+const btnMobile = document.getElementById('btn-mobile');
+const nav = document.getElementById('nav');
+
 const btnPaises = document.querySelector('#menu-paises > a');
-const boxPaises = document.querySelector('#dropdown-paises');
+const dropPaises = document.getElementById('dropdown-paises');
 
 const btnLogin = document.querySelector('#menu-login > a');
-const boxLogin = document.querySelector('#dropdown-login');
+const dropLogin = document.getElementById('dropdown-login');
 
-// Função para abrir/fechar
-function toggleMenu(btn, box, otherBox) {
-    btn.addEventListener('click', (e) => {
+// Abrir/Fechar Menu Mobile
+btnMobile.addEventListener('click', (e) => {
+    e.stopPropagation(); // Impede o fechamento imediato pelo clique fora
+    nav.classList.toggle('active');
+});
+
+// Função para Dropdowns
+function configurarDropdown(botao, caixa, outraCaixa) {
+    if(!botao) return;
+    botao.addEventListener('click', (e) => {
         e.preventDefault();
-        otherBox.classList.remove('show'); // Fecha o outro se estiver aberto
-        box.classList.toggle('show');
+        e.stopPropagation();
+        if (outraCaixa) outraCaixa.classList.remove('show');
+        caixa.classList.toggle('show');
     });
 }
 
-// Ativa os cliques
-toggleMenu(btnPaises, boxPaises, boxLogin);
-toggleMenu(btnLogin, boxLogin, boxPaises);
+configurarDropdown(btnPaises, dropPaises, dropLogin);
+configurarDropdown(btnLogin, dropLogin, dropPaises);
 
-// Fecha se clicar fora de qualquer menu
+// Fechar ao clicar fora (Melhorado)
 window.addEventListener('click', (e) => {
-    if (!e.target.closest('.has-dropdown')) {
-        boxPaises.classList.remove('show');
-        boxLogin.classList.remove('show');
+    // Se o clique não foi no menu nem nos botões, fecha tudo
+    if (!nav.contains(e.target) && !btnMobile.contains(e.target)) {
+        nav.classList.remove('active');
+        dropPaises.classList.remove('show');
+        if (dropLogin) dropLogin.classList.remove('show');
     }
 });
