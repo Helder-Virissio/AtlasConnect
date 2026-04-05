@@ -355,23 +355,46 @@ input[type="email"], input[type="password"] {
    5. RESPONSIVIDADE (MOBILE)
    ========================================================================== */
 @media (max-width: 900px) {
-    .header-container { padding: 0 25px; } /* Margem Mobile */
-    .main-header { height: 80px; }
-    .logo img { height: 50px; }
+    /* Esconde o login que está solto no header */
+    .header-container > .login-wrapper {
+        display: none;
+    }
 
+    /* Ajusta o menu lateral para receber o conteúdo */
     .nav-menu {
         position: fixed;
         top: 80px;
         right: -100%;
         width: 80%;
-        height: 100vh;
+        height: calc(100vh - 80px);
         background-color: var(--white);
-        padding: 40px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        z-index: 1000;
         transition: 0.4s;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
     }
 
-    .nav-menu.active { right: 0; }
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* Faz os dropdowns (Países e Login) expandirem o menu em vez de flutuar */
+    .dropdown-content {
+        position: static; 
+        width: 100% !important;
+        box-shadow: none;
+        display: none; 
+        background-color: var(--cool-horizon-100);
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    .dropdown-content.show {
+        display: block;
+    }
+}
     .nav-list { flex-direction: column; gap: 25px; }
 
     .mobile-menu-btn {
