@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtlasConnect</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="/Imagens/logo-ac.svg" alt="Atlas Connect">
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    
+                    <li class="has-dropdown" id="menu-paises">
+                        <a href="#">Países ▾</a>
+                        <div class="dropdown-content" id="dropdown-paises">
+                            <div class="pais-item">
+                                <img src="/Imagens/Flag_of_Canada_(Pantone).svg" alt="Canadá">
+                                <div class="pais-texto">
+                                    <h4>Canadá</h4>
+                                    <p>Explore as montanhas geladas do Canadá e os cenários de Hollywood!</p>
+                                </div>
+                            </div>
+                            <div class="pais-item">
+                                <img src="/Imagens/Flag_of_the_United_States.svg" alt="Estados Unidos">
+                                <div class="pais-texto">
+                                    <h4>Estados Unidos</h4>
+                                    <p>Estude no centro do mundo!</p>
+                                </div>
+                            </div>
+                            <div class="pais-item">
+                                <img src="/Imagens/Flag_of_Japan.svg.png" alt="Japão">
+                                <div class="pais-texto">
+                                    <h4>Japão</h4>
+                                    <p>A terra dos mangás e animês!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="#">Funcionamento</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="login-menu has-dropdown" id="menu-login">
+                <a href="#">Login ▾</a>
+                <div class="dropdown-content login-box" id="dropdown-login">
+                    <p class="login-title">Faça seu login ou cadastre-se</p>
+                    
+                    <label>E-mail</label>
+                    <input type="email" placeholder="seu@email.com">
+                    
+                    <label>Senha</label>
+                    <input type="password" placeholder="******">
+                    
+                    <div class="login-options">
+                        <input type="checkbox" id="lembrar">
+                        <label for="lembrar">Lembrar minha senha</label>
+                    </div>
+
+                    <div class="login-buttons">
+                        <button class="btn-entrar">Entrar</button>
+                        <button class="btn-cadastrar">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="/script/script.js"></script>
+</body>
+</html>
