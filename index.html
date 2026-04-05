@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AtlasConnect</title>
-   
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
 
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
-                
-                <img src="Imagens/logo-ac.svg" alt="Atlas Connect">
+                <a href="Index.html">
+                    <img src="Imagens/logo-ac.svg" alt="Atlas Connect">
+                </a>
             </div>
+
+            <button class="mobile-menu-btn" id="btn-mobile">
+                <span class="hamburguer"></span>
+            </button>
             
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#">Início</a></li>
+            <nav class="nav-menu" id="nav">
+                <ul class="nav-list">
+                    <li><a href="Index.html">Início</a></li>
                     
                     <li class="has-dropdown" id="menu-paises">
                         <a href="#">Países ▾</a>
@@ -27,11 +31,11 @@
                                 <img src="Imagens/Flag_of_Canada_(Pantone).svg" alt="Canadá">
                                 <div class="pais-texto">
                                     <h4>Canadá</h4>
-                                    <p>Explore as montanhas geladas do Canadá e os cenários de Hollywood!</p>
+                                    <p>Explore as montanhas geladas!</p>
                                 </div>
                             </div>
                             <div class="pais-item">
-                                <img src="Imagens/Flag_of_the_United_States.svg" alt="Estados Unidos">
+                                <img src="Imagens/Flag_of_the_United_States.svg" alt="EUA">
                                 <div class="pais-texto">
                                     <h4>Estados Unidos</h4>
                                     <p>Estude no centro do mundo!</p>
@@ -53,31 +57,72 @@
                 </ul>
             </nav>
 
-            <div class="login-menu has-dropdown" id="menu-login">
-                <a href="#">Login ▾</a>
+            <div class="login-wrapper has-dropdown" id="menu-login">
+                <a href="#" class="login-link">Login ▾</a>
                 <div class="dropdown-content login-box" id="dropdown-login">
                     <p class="login-title">Faça seu login ou cadastre-se</p>
-                    
-                    <label>E-mail</label>
-                    <input type="email" placeholder="seu@email.com">
-                    
-                    <label>Senha</label>
-                    <input type="password" placeholder="******">
-                    
-                    <div class="login-options">
-                        <input type="checkbox" id="lembrar">
-                        <label for="lembrar">Lembrar minha senha</label>
-                    </div>
-
-                    <div class="login-buttons">
-                        <button class="btn-entrar">Entrar</button>
-                        <button class="btn-cadastrar">Cadastrar</button>
+                    <input type="email" placeholder="E-mail">
+                    <input type="password" placeholder="Senha">
+                    <div class="login-actions">
+                        <button class="btn btn-primary btn-entrar">Entrar</button>
+                        <button class="btn btn-secondary btn-cadastrar">Cadastrar</button>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    
+
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1 class="hero-title">Interface Atlas Connect <br> Sem adivinhações</h1>
+
+            <p class="hero-description">
+            Sua consultoria de intercâmbio personalizada. <br> Planeje sua jornada com roteiros validados com mentorias especializadas em um só lugar.
+            </p>
+        
+        </div>
+    </section>
+
+
+    <section class="destinos-section">
+    <div class="container cards-grid">
+        
+        <div class="card-item">
+            <div class="card-image">
+                <img src="Imagens/canada-no-inverno-1224764695.jpg" alt="Canadá">
+                <span class="badge-testado">✔ Verificado</span>
+            </div>
+            <div class="card-info">
+                <h3>Intercâmbio no Canadá</h3>
+                <p>Explore montanhas geladas e instituições de ensino de alto nível com suporte local.</p>
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-image">
+                <img src="Imagens/seguro-viagem-eua-blog-ua-br-1.jpg" alt="EUA">
+                <span class="badge-testado">✔ Verificado</span>
+            </div>
+            <div class="card-info">
+                <h3>Estude nos Estados Unidos</h3>
+                <p>Vivencie a cultura americana com mentorias exclusivas para o seu currículo acadêmico.</p>
+            </div>
+        </div>
+
+        <div class="card-item">
+            <div class="card-image">
+                <img src="Imagens/topo-viagem-para-o-japao.jpg" alt="Japão">
+                <span class="badge-testado">✔ Verificado</span>
+            </div>
+            <div class="card-info">
+                <h3>Cultura e Tecnologia no Japão</h3>
+                <p>Uma jornada única entre a tradição e a modernidade com nosso guia de sobrevivência regional.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
     <script src="script/script.js"></script>
 </body>
 </html>
