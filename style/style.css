@@ -394,3 +394,127 @@ input[type="email"], input[type="password"] {
     .consultores-stack { padding: 60px 0; }
     .card-visual { height: 200px; }
 }
+
+
+/* ==========================================================================
+   FOOTER - PALETA ATLAS CONNECT
+   ========================================================================== */
+.footer-atlas {
+    background-color: #011623; /* Cor principal do Atlas */
+    color: var(--white);
+    padding: 80px 0 20px 0;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 60px;
+}
+
+.f-logo {
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+.footer-info p {
+    font-size: 15px;
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.f-socials a {
+    color: var(--white);
+    margin-right: 15px;
+    font-size: 18px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.f-socials a:hover {
+    color: var(--sunflower-gold); /* Destaque no hover */
+    opacity: 1;
+}
+
+.footer-nav h4 {
+    color: var(--sunflower-gold); /* Títulos em Dourado */
+    font-size: 18px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-nav ul {
+    list-style: none;
+}
+
+.footer-nav ul li {
+    margin-bottom: 12px;
+}
+
+.footer-nav ul a {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.7;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.footer-nav ul a:hover {
+    opacity: 1;
+    color: var(--cool-horizon); /* Azul claro para links ativos */
+}
+
+/* Card de Status de Confiança */
+.status-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--sunflower-gold);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.status-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.status-rating {
+    color: var(--sunflower-gold);
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+/* Linha de Base */
+.footer-copyright {
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+}
+
+.copy-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    opacity: 0.5;
+}
+
+.copy-legal a {
+    color: var(--white);
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
