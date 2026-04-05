@@ -1,6 +1,5 @@
 <h1>AtlasConnect</h1>
-<h3>Projeto integrador - 2 Semestre Desenvolvimento de Software multiplataforma</h3>
-<h5>Fatec Luigi Papaiz</h5>
+<h3>Projeto integrador - 2 Semestre Desenvolvimento de Software multiplataforma, <br> Fatec - Luigi Papaiz <br> <p>
 
 
 <a href="https://helder-virissio.github.io/AtlasConnect/">Link do Site</a>
@@ -25,10 +24,6 @@ direcionado para potencializar a jornada
 internacional e elevar o aproveitamento
 acadêmico e profissional do usuário. 
 .<br> 
-
-<img width=625, heigth=625 src="https://github.com/user-attachments/assets/bd948989-0a5d-4008-ae75-0179b6073329">
-
-
 
   <h2>👨‍💻-Linguagens de programação</h2>
   <div >
