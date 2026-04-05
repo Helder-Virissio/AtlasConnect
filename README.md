@@ -29,6 +29,5 @@ acadêmico e profissional do usuário.
   <div >
     <img width="50" heigth="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" />
     <img width="50" heigth="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" />
-    <img width="50" heigth="50" src="https://devicon-website.vercel.app/api/bootstrap/original.svg"/>
     <img width="50" heigth="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" />
   </div>
