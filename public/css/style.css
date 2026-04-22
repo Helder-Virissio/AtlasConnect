@@ -1,0 +1,520 @@
+/* ==========================================================================
+   1. DESIGN SYSTEM (CORES E FONTES)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700&display=swap');
+
+:root {
+    --cool-horizon: #59A5DB;
+    --cool-horizon-100: #EEF6FB;
+    --sunflower-gold: #E6AF2E;
+    --yale-blue: #133C55;
+    --ink-black: #011623;
+    --neutral-100: #E6E8E9;
+    --white: #FFFFFF;
+    --font-main: 'Red Hat Display', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--ink-black);
+    overflow-x: hidden;
+    background-color: var(--white);
+}
+
+/* ==========================================================================
+   2. ESTRUTURA DO HEADER
+   ========================================================================== */
+.main-header {
+    background-color: var(--cool-horizon-100);
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    position: sticky; /* Mantém o menu fixo ao rolar */
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+/* Navegação Desktop */
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-list a, .login-link {
+    text-decoration: none;
+    color: var(--cool-horizon);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.has-dropdown { position: relative; }
+
+/* Dropdowns Geral */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #D6EAF8;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    margin-top: 15px;
+    width: 340px;
+    z-index: 1001;
+}
+
+.dropdown-content.show { display: block; }
+
+/* Itens de Países */
+.pais-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; }
+.pais-item img {
+    width: 40px;
+    height: 28px;
+    object-fit: cover; 
+    border-radius: 4px;
+}
+
+/* Box de Login */
+#dropdown-login { width: 280px; right: 0; }
+.login-title { font-size: 14px; font-weight: 700; margin-bottom: 15px; }
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--neutral-100);
+    border-radius: 8px;
+}
+
+.login-actions { display: flex; gap: 10px; }
+
+.btn {
+    flex: 1;
+    height: 45px;
+    border-radius: 10px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-primary { background-color: var(--cool-horizon); color: white; }
+.btn-secondary { background-color: transparent; color: var(--cool-horizon); border: 1px solid var(--cool-horizon); }
+
+/* ==========================================================================
+   3. SEÇÃO HERO E CARTÕES
+   ========================================================================== */
+.hero-section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 20px;
+    color: #5F6368;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.destinos-section { padding: 60px 75px; }
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.card-item {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--neutral-100);
+    transition: 0.3s;
+}
+
+.card-item:hover { transform: translateY(-10px); }
+
+.card-image { position: relative; height: 250px; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.badge-testado {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-info { padding: 20px; }
+.card-info h3 { color: var(--yale-blue); margin-bottom: 10px; }
+
+/* ==========================================================================
+   4. RESPONSIVIDADE (MOBILE) - CORREÇÃO DO ERRO
+   ========================================================================== */
+.mobile-menu-btn { display: none; } /* Escondido por padrão */
+
+@media (max-width: 900px) {
+    .main-header { height: 80px; }
+    .header-container { padding: 0 20px; }
+    
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        z-index: 1100;
+    }
+
+    .hamburguer {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--cool-horizon);
+        position: relative;
+    }
+
+    .hamburguer::before, .hamburguer::after {
+        content: '';
+        width: 25px;
+        height: 2px;
+        background: var(--cool-horizon);
+        position: absolute;
+        left: 0;
+    }
+    .hamburguer::before { top: -8px; }
+    .hamburguer::after { bottom: 8px; }
+
+    /* Ajuste da Navegação Lateral */
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background-color: var(--white);
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        transition: 0.4s;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active { right: 0; }
+    .nav-list { flex-direction: column; gap: 20px; }
+
+    /* Dropdowns no Mobile viram Accordions */
+    .dropdown-content {
+        position: static;
+        width: 100% !important;
+        box-shadow: none;
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    /* Hero e Cartões no Mobile */
+    .hero-title { font-size: 36px; }
+    .destinos-section { padding: 40px 20px; }
+    .cards-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   SEÇÃO DE CONSULTORES (STACK - FOTO ESQUERDA)
+   ========================================================================== */
+
+.consultores-stack {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.stack-container {
+    max-width: 1500px; /* Largura máxima para os cards não ficarem gigantes */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sticky-card {
+    position: sticky;
+    top: 150px; /* Distância do topo ao travar */
+    min-height: 500px; /* Altura mínima para os cards */
+    margin-bottom: 80px; /* Espaço para o próximo cartão subir */
+    border-radius: 40px;
+    display: flex; /* Mantém foto na esquerda e texto na direita */
+    overflow: hidden;
+    color: var(--white);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+}
+
+/* Cores do Atlas Connect */
+.bg-yale { background-color: var(--yale-blue); z-index: 1; }
+.bg-horizon { background-color: var(--cool-horizon); z-index: 2; }
+.bg-gold { background-color: var(--sunflower-gold); z-index: 3; }
+
+/* 1. Bloco da Foto (Esquerda - 40%) */
+.card-visual {
+    flex: 0 0 50%; /* Ocupa exatamente 40% da largura */
+    
+}
+
+.consultor-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Foto proporcional ao card */
+}
+
+/* 2. Bloco de Texto (Direita - 60%) */
+.card-text {
+    flex: 0 0 60%; /* Ocupa exatamente 60% da largura */
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha o texto no topo do card */
+}
+
+.card-text h3 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+.specialty-title {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.bio-text {
+    font-size: 17px;
+    font-weight: 400;
+    opacity: 0.85;
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 25px; /* Espaço para as bandeiras */
+}
+
+/* 3. Grupo de Bandeiras (Abaixo da Bio) */
+.flag-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.flag-icon {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.card-cta { margin-top: auto; } /* Empurra o botão para o final do card */
+
+/* Botão Específico para fundo colorido */
+.btn-outline-white {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-outline-white:hover {
+    background-color: var(--white);
+    color: var(--ink-black); /* Cor escura para contraste no hover */
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE - CONSULTORES (Ajuste Mobile)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .sticky-card {
+        flex-direction: column; /* Foto em cima, texto em baixo no tablet/mobile */
+        min-height: auto;
+        padding: 0;
+        top: 100px;
+    }
+
+    .card-visual {
+        flex: 1;
+        height: 250px;
+    }
+
+    .card-text {
+        flex: 1;
+        padding: 40px 30px;
+    }
+    .card-text h3 { font-size: 32px; }
+    .specialty-title { font-size: 16px; margin-bottom: 15px; }
+    .bio-text { font-size: 15px; max-width: 100%; }
+    .card-cta { margin-top: 25px; text-align: center; }
+}
+
+@media (max-width: 768px) {
+    .consultores-stack { padding: 60px 0; }
+    .card-visual { height: 200px; }
+}
+
+
+/* ==========================================================================
+   FOOTER - PALETA ATLAS CONNECT
+   ========================================================================== */
+.footer-atlas {
+    background-color: #011623; /* Cor principal do Atlas */
+    color: var(--white);
+    padding: 80px 0 20px 0;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 60px;
+}
+
+.f-logo {
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+.footer-info p {
+    font-size: 15px;
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.f-socials a {
+    color: var(--white);
+    margin-right: 15px;
+    font-size: 18px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.f-socials a:hover {
+    color: var(--sunflower-gold); /* Destaque no hover */
+    opacity: 1;
+}
+
+.footer-nav h4 {
+    color: var(--sunflower-gold); /* Títulos em Dourado */
+    font-size: 18px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-nav ul {
+    list-style: none;
+}
+
+.footer-nav ul li {
+    margin-bottom: 12px;
+}
+
+.footer-nav ul a {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.7;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.footer-nav ul a:hover {
+    opacity: 1;
+    color: var(--cool-horizon); /* Azul claro para links ativos */
+}
+
+/* Card de Status de Confiança */
+.status-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--sunflower-gold);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.status-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.status-rating {
+    color: var(--sunflower-gold);
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+/* Linha de Base */
+.footer-copyright {
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+}
+
+.copy-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    opacity: 0.5;
+}
+
+.copy-legal a {
+    color: var(--white);
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
