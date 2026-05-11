@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Mentorias | Atlas Connect</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="header">
+        <div class="header-container">
+            <a href="/index.html">
+                <img src="../assets/images/logo-ac.png" alt="Atlas Connect" class="logo-img">
+            </a>
+            <nav id="nav-dashboard">
+                <span id="user-greeting">Carregando...</span>
+                <button id="btn-logout" class="btn-outline">Sair</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="welcome-section">
+            <h1>Minhas Mentorias Ativas</h1>
+            <p>Aqui você encontra os mentores que aceitaram sua conexão.</p>
+        </section>
+
+        <section class="mentoria-requests">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2 style="color: var(--yale-blue); font-size: 20px;">Conexões Estabelecidas</h2>
+            </div>
+            
+            <div class="request-list" id="lista-mentorias-ativas">
+                <p style="padding: 20px; color: #64748B;">Buscando suas mentorias...</p>
+            </div>
+        </section>
+
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="/paises" class="btn-primary" style="text-decoration: none; padding: 10px 20px; border-radius: 5px;">Buscar Novos Mentores</a>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 0; color: #94A3B8; font-size: 12px;">
+        &copy; 2026 Atlas Connect - FATEC Projeto Integrador.
+    </footer>
+
+    <script src="../js/dashboard-aluno.js"></script>
+</body>
+</html>

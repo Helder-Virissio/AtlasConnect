@@ -98,8 +98,20 @@ body {
 }
 
 /* Box de Login */
-#dropdown-login { width: 280px; right: 0; }
-.login-title { font-size: 14px; font-weight: 700; margin-bottom: 15px; }
+#dropdown-login { 
+    width: 280px; 
+    right: 0; 
+    padding: 20px; /* Adicionei padding para não grudar nas bordas */
+    background: var(--white);
+    border-radius: 12px;
+}
+
+.login-title { 
+    font-size: 14px; 
+    font-weight: 700; 
+    margin-bottom: 15px; 
+    color: var(--ink-black);
+}
 
 input[type="email"], input[type="password"] {
     width: 100%;
@@ -107,24 +119,133 @@ input[type="email"], input[type="password"] {
     margin-bottom: 10px;
     border: 1px solid var(--neutral-100);
     border-radius: 8px;
+    font-family: var(--font-main);
 }
 
-.login-actions { display: flex; gap: 10px; }
+/* Alinhamento dos Botões */
+.login-actions { 
+    display: flex; 
+    gap: 12px; /* Espaço entre entrar e cadastrar */
+}
 
 .btn {
-    flex: 1;
+    flex: 1; /* Faz ambos terem a mesma largura */
     height: 45px;
+    display: inline-flex; /* Garante alinhamento do texto se for link <a> */
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     font-family: var(--font-main);
-    font-weight: 500;
+    font-weight: 400; /* Um pouco mais de peso para leitura */
+    text-decoration: none;
     cursor: pointer;
     transition: 0.3s;
     border: none;
 }
 
-.btn-primary { background-color: var(--cool-horizon); color: white; }
-.btn-secondary { background-color: transparent; color: var(--cool-horizon); border: 1px solid var(--cool-horizon); }
+/* Botão Entrar */
+.btn-primary { 
+    background-color: var(--cool-horizon); 
+    color: white; 
+}
 
+.btn-primary:hover {
+    filter: brightness(0.9);
+    transform: translateY(-1px);
+}
+
+/* Botão Cadastrar (Corrigido para estilo Outline) */
+.btn-secondary { 
+    background-color: transparent; 
+    color: var(--cool-horizon);
+    
+}
+
+.btn-secondary:hover {
+    background-color: var(--cool-horizon-100);
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================================================
+   CORREÇÃO DO FORMULÁRIO DE CADASTRO (PADRÃO FIGMA)
+   ========================================================================== */
+
+   /* Estilos da Página de Cadastro */
+.register-card {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.register-header { text-align: center; margin-bottom: 30px; }
+.register-logo { height: 60px; margin-bottom: 15px; }
+.register-header h2 { color: var(--ink-black); font-size: 24px; }
+.register-header p { color: #64748B; font-size: 14px; margin-top: 5px; }
+
+.input-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
+.input-group label { font-size: 14px; font-weight: 600; color: var(--yale-blue); }
+
+.btn-full { width: 100%; margin-top: 10px; }
+
+.login-prompt { 
+    text-align: center; 
+    margin-top: 20px; 
+    font-size: 14px; 
+    color: #64748B; 
+}
+.login-prompt a { color: var(--cool-horizon); font-weight: 600; text-decoration: none; }
+
+
+/* 1. Ajuste do Grupo (Label + Input) para alinhamento profissional */
+.input-group { 
+    margin-bottom: 22px; /* Espaçamento simétrico entre campos */
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; /* Alinha labels na esquerda, como na foto */
+    width: 100%;
+}
+
+/* 2. Estilização dos Labels (Títulos dos campos) */
+.input-group label { 
+    font-family: var(--font-main);
+    font-weight: 700; /* Negrito definido, igual à imagem */
+    font-size: 15px; 
+    color: var(--yale-blue); /* Usando a cor escura do seu design system */
+    margin-bottom: 10px; /* Distância exata até o input */
+    letter-spacing: -0.2px;
+}
+
+/* 3. Estilização Geral dos Inputs (Nome, Email e Senha) */
+.input-group input {
+    width: 100%;
+    height: 50px; /* Altura generosa do Figma */
+    padding: 0 18px; /* Padding interno para o texto não colar */
+    border-radius: 12px; /* Cantos arredondados suaves */
+    font-family: var(--font-main);
+    font-size: 14px;
+    background-color: var(--white);
+    transition: 0.2s ease;
+    outline: none;
+
+    /* A CORREÇÃO: Borda fina (1px) e clarinha (#E2E8F0), como na imagem */
+    border: 1px solid #E2E8F0; 
+}
+
+/* 4. Estilização do Texto Placeholder (O cinza suave da foto) */
+.input-group input::placeholder {
+    color: #A0AEC0; /* Um cinza mais suave e legível, fiel à imagem */
+    opacity: 1; /* Garante a cor no Firefox */
+}
+
+/* 5. Feedback Visual no Foco (Opcional, mas profissional) */
+.input-group input:focus {
+    border-color: #A3C9E2; /* Um azul sutil ao clicar */
+    box-shadow: 0 0 0 3px rgba(163, 201, 226, 0.15); /* Brilho suave */
+}
 /* ==========================================================================
    3. SEÇÃO HERO E CARTÕES
    ========================================================================== */
@@ -183,6 +304,9 @@ input[type="email"], input[type="password"] {
 
 .card-info { padding: 20px; }
 .card-info h3 { color: var(--yale-blue); margin-bottom: 10px; }
+
+
+
 
 /* ==========================================================================
    4. RESPONSIVIDADE (MOBILE) - CORREÇÃO DO ERRO
@@ -517,4 +641,140 @@ input[type="email"], input[type="password"] {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
     }
+}
+
+
+
+/* Estilo para o campo de upload simulando o input do Figma pagina cadastro-profissional */
+/* Centralização da Página */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #F8FAFC;
+    padding: 20px;
+}
+
+/* O Card conforme o Figma */
+.register-card {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    text-align: center; /* Centraliza textos e imagens */
+}
+
+/* Navegação de Voltar */
+.back-navigation {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #64748B;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Logo centralizada */
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    width: 60px; /* Ajuste conforme sua logo */
+}
+
+/* Inputs alinhados à esquerda (padrão de leitura) */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #1E293B;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    background-color: #F1F5F9; /* Columbia Blue clarinho */
+}
+
+/* Botão Concluir igual ao Figma */
+.btn-primary {
+    background-color: #5FA1D5;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #4A8CBE;
+}
+
+/* --- NAVEGAÇÃO ENTRE TIPOS DE CADASTRO --- */
+
+.switch-link {
+    margin: 15px 0 25px 0; /* Espaçamento para não colar no título */
+    background-color: #F1F5F9; /* Um cinza muito leve para destacar suavemente */
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.switch-link p {
+    font-size: 13px;
+    color: #64748B; /* Cor cinza slate do Figma */
+    margin: 0;
+}
+
+.switch-link a {
+    color: #1E3A8A; /* Yale Blue (o azul escuro da sua marca) */
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+    color: #5FA1D5; /* Columbia Blue ao passar o rato */
+}
+
+/* Ajuste para o botão de voltar no topo */
+.back-navigation {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.back-link {
+    color: #94A3B8;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    color: #1E3A8A;
 }

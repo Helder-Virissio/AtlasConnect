@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentores Disponíveis | Atlas Connect</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css"> </head>
+<body style="background: #F8FAFC;">
+    <header  id="header">
+        <style>
+    .request-card {
+        transition: all 0.3s ease;
+        cursor: default;
+    }
+    .request-card:hover {
+        transform: scale(1.01);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn-accept:active {
+        transform: scale(0.95);
+    }
+</style>
+        <div class="header-container">
+            <a href="/paises" style="color: var(--yale-blue); text-decoration: none;">← Voltar para Países</a>
+            <h2 id="titulo-pais" style="color: var(--yale-blue);">Mentores para ...</h2>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <div id="lista-mentores" class="request-list">
+            <p>Buscando especialistas...</p>
+        </div>
+    </main>
+
+    <script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const pais = localStorage.getItem('paisSelecionado');
+    const container = document.getElementById('lista-mentores');
+
+    try {
+        const response = await fetch(`/api/mentores/${pais}`);
+        const mentores = await response.json();
+        container.innerHTML = '';
+
+        if (mentores.length === 0) {
+            container.innerHTML = '<p>Nenhum mentor encontrado.</p>';
+            return;
+        }
+
+        mentores.forEach(m => {
+            const card = document.createElement('div');
+            card.className = 'request-card';
+            card.innerHTML = `
+                <div class="student-info">
+                    <strong>${m.nome}</strong>
+                    <span>Especialista em ${m.especialidade}</span>
+                </div>
+                <button class="btn-accept" onclick="enviarSolicitacao(${m.id}, this)">Solicitar Mentoria</button>
+            `;
+            container.appendChild(card);
+        });
+    } catch (e) {
+        console.error(e);
+    }
+});
+
+// Função para enviar e atualizar o botão
+window.enviarSolicitacao = async function(mentorId, btn) {
+    const alunoId = localStorage.getItem('usuarioId');
+
+    if (!alunoId) return alert("Faça login novamente!");
+
+    // Feedback visual imediato
+    const textoOriginal = btn.innerText;
+    btn.disabled = true;
+    btn.innerText = "Enviando...";
+
+    try {
+        const response = await fetch('/api/solicitar-mentoria', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ aluno_id: alunoId, mentor_id: mentorId })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            // Estilo final de sucesso
+            btn.innerText = "Solicitado";
+            btn.style.backgroundColor = "#94A3B8"; // Cinza
+            btn.style.cursor = "not-allowed";
+        } else {
+            alert("Erro ao solicitar.");
+            btn.disabled = false;
+            btn.innerText = textoOriginal;
+        }
+    } catch (err) {
+        alert("Erro de conexão.");
+        btn.disabled = false;
+        btn.innerText = textoOriginal;
+    }
+};
+    </script>
+</body>
+</html>

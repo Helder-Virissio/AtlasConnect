@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Atlas Connect</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style="background-color: var(--cool-horizon-100); display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+
+    <div class="register-container">
+        <div class="register-card">
+            
+            <div class="back-navigation">
+                <a href="../index.html" class="back-link">
+                    <span class="arrow">←</span> Voltar
+                </a>
+            </div>
+
+            <header class="register-header">
+                <img src="../assets/images/logo-ac.svg" alt="Atlas Connect" class="register-logo">
+                <h2 class="register-title">Criar Conta</h2>
+                <p class="register-subtitle">Comece sua jornada internacional hoje.</p>
+
+                <div class="switch-link">
+                <p>É um especialista? <a href="../pages/cadastro-profissional.html">Cadastre-se como Profissional</a></p>
+                </div>
+            </header>   
+
+            <form id="form-cadastro-completo">
+                <div class="input-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Ex: André Santos" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="reg-email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres" required>
+                </div>
+
+                <div class="register-footer">
+                    <button type="submit" class="btn btn-primary btn-full">Concluir Cadastro</button>
+                    <p class="login-prompt">Já tem uma conta? <a href="../index.html">Faça login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/cadastro.js" defer></script>
+</body>
+</html>

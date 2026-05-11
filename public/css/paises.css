@@ -1,0 +1,144 @@
+:root {
+    --bg-blue: #F0F7FF;      /* Fundo Alice Blue da imagem */
+    --yale-blue: #1E3A8A;    /* Azul escuro dos textos */
+    --sky-blue: #5DADE2;     /* Azul claro dos botões */
+    --text-gray: #64748B;    /* Cor das descrições */
+    --white: #FFFFFF;
+}
+
+body {
+    background-color: var(--bg-blue);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--yale-blue);
+}
+
+/* --- HEADER --- */
+#header {
+    padding: 20px 5%;
+    background-color: var(--bg-blue);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+}
+
+#nav-paises {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+}
+
+.btn-outline {
+    background: white;
+    border: 1px solid var(--yale-blue);
+    color: var(--yale-blue);
+    padding: 5px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--yale-blue);
+    color: white;
+}
+
+/* --- HERO SECTION --- */
+.hero-paises {
+    text-align: center;
+    padding: 60px 5% 20px;
+}
+
+.hero-paises h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #000; /* Título bem escuro como no Figma */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-paises p {
+    color: var(--text-gray);
+    font-size: 16px;
+    max-width: 600px;
+    margin: 15px auto 0;
+}
+
+/* --- GRID DE PAÍSES --- */
+.countries-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 5% 80px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- CARDS --- */
+.country-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E2E8F0;
+    transition: transform 0.3s ease;
+    width: 450px;
+    height: 400px;
+}
+
+.country-card:hover {
+    transform: translateY(-8px);
+}
+
+.card-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: var(--yale-blue);
+}
+
+.card-content p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    
+}
+
+/* --- BOTÃO VER MENTORES --- */
+.btn-view {
+    background-color: var(--sky-blue);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-view:hover {
+    background-color: #4a96c9;
+}
