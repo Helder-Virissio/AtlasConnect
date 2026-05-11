@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     alert(`Parabéns ${nome}, sua conta no Atlas Connect foi criada!`);
                     // Redireciona para a home para o usuário fazer login
-                    window.location.href = '../index.html'; 
+                    window.location.href = '/'; 
                 } else {
                     // Trata erros como e-mail já cadastrado (Erro 19 no SQLite)
                     alert("Erro ao cadastrar: " + (data.error || "Verifique os dados."));

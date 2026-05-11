@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinos | Atlas Connect</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/paises.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/paises.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header id="header">
         <div class="header-container">
-            <a href="/index.html"><img src="../assets/images/logo-ac.png" alt="Logo" class="logo-img"></a>
+            <a href="/"><img src="/public/assets/images/logo-ac.png" alt="Logo" class="logo-img"></a>
             <nav id="nav-paises">
                 <span id="user-name">Carregando...</span>
                 <button id="btn-logout" class="btn-outline">Sair</button>
@@ -32,7 +32,7 @@
                 <div class="card-content">
                     <h3>Canadá</h3>
                     <p>Oportunidades em TI e qualidade de vida incomparável.</p>
-                    <button class="btn-view">Ver Mentores</button>
+                    <button class="btn-view" onclick="window.location.href='/listagem-mentores?pais=Canada'">Ver Mentores</button>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
                 <div class="card-content">
                     <h3>Irlanda</h3>
                     <p>O berço europeu das big techs e muita cultura.</p>
-                    <button class="btn-view">Ver Mentores</button>
+                    <button class="btn-view" onclick="window.location.href='/listagem-mentores?pais=Irlanda'">Ver Mentores</button>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                 <div class="card-content">
                     <h3>Portugal</h3>
                     <p>Porta de entrada para a Europa com facilidade na língua.</p>
-                    <button class="btn-view">Ver Mentores</button>
+                    <button class="btn-view" onclick="window.location.href='/listagem-mentores?pais=Portugal'">Ver Mentores</button>
                 </div>
             </div>
 
@@ -59,12 +59,12 @@
                 <div class="card-content">
                     <h3>Austrália</h3>
                     <p>Clima tropical, surf e ótimas bolsas de estudo.</p>
-                    <button class="btn-view">Ver Mentores</button>
+                    <button class="btn-view" onclick="window.location.href='/listagem-mentores?pais=Australia'">Ver Mentores</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="../js/paises.js"></script>
+    <script src="/public/js/paises.js"></script>
 </body>
 </html>

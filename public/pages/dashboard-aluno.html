@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas Mentorias | Atlas Connect</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header id="header">
         <div class="header-container">
-            <a href="/index.html">
-                <img src="../assets/images/logo-ac.png" alt="Atlas Connect" class="logo-img">
+            <a href="/">
+                <img src="/public/assets/images/logo-ac.png" alt="Atlas Connect" class="logo-img">
             </a>
             <nav id="nav-dashboard">
-                <span id="user-greeting">Carregando...</span>
+                <span id="user-greeting" style="font-weight: 600; color: var(--yale-blue);">Carregando...</span>
                 <button id="btn-logout" class="btn-outline">Sair</button>
             </nav>
         </div>
@@ -39,7 +39,7 @@
         </section>
 
         <div style="margin-top: 20px; text-align: center;">
-            <a href="/paises" class="btn-primary" style="text-decoration: none; padding: 10px 20px; border-radius: 5px;">Buscar Novos Mentores</a>
+            <a href="/paises" class="btn-primary" style="text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block;">Buscar Novos Mentores</a>
         </div>
     </main>
 
@@ -47,6 +47,6 @@
         &copy; 2026 Atlas Connect - FATEC Projeto Integrador.
     </footer>
 
-    <script src="../js/dashboard-aluno.js"></script>
+    <script src="/public/js/dashboard-aluno.js"></script>
 </body>
 </html>

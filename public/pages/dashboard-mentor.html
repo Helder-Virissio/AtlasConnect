@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Mentor | Atlas Connect</title>
     
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/dashboard.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -14,11 +14,11 @@
 
     <header id="header">
         <div class="header-container">
-            <a href="/index.html">
-                <img src="../assets/images/logo-ac.png" alt="Atlas Connect" class="logo-img">
+            <a href="/">
+                <img src="/public/assets/images/logo-ac.png" alt="Atlas Connect" class="logo-img">
             </a>
             <nav id="nav-dashboard">
-                <span id="user-greeting">Usuário</span>
+                <span id="user-greeting" style="font-weight: 600; color: var(--yale-blue);">Carregando...</span>
                 <button id="btn-logout" class="btn-outline">Sair</button>
             </nav>
         </div>
@@ -34,11 +34,11 @@
         <section class="stats-grid">
             <div class="stat-card">
                 <h3>Pedidos Pendentes</h3>
-                <p class="stat-number" id="stats-pendentes">02</p>
+                <p class="stat-number" id="stats-pendentes">0</p>
             </div>
             <div class="stat-card">
                 <h3>Mentorias Ativas</h3>
-                <p class="stat-number" id="stats-ativas">00</p>
+                <p class="stat-number" id="stats-ativas">0</p>
             </div>
             <div class="stat-card">
                 <h3>Avaliação Média</h3>
@@ -52,31 +52,7 @@
             </div>
             
             <div class="request-list" id="lista-pedidos">
-                <div class="request-card">
-                    <div class="student-info">
-                        <strong>João Pedro S.</strong>
-                        <p style="font-size: 13px; color: #64748B; margin-top: 5px;">
-                            Interesse: Graduação no Canadá
-                        </p>
-                    </div>
-                    <div class="actions">
-                        <button class="btn-accept">Aceitar</button>
-                        <button class="btn-reject">Recusar</button>
-                    </div>
-                </div>
-
-                <div class="request-card">
-                    <div class="student-info">
-                        <strong>Maria Eduarda F.</strong>
-                        <p style="font-size: 13px; color: #64748B; margin-top: 5px;">
-                            Interesse: Mestrado na Irlanda
-                        </p>
-                    </div>
-                    <div class="actions">
-                        <button class="btn-accept">Aceitar</button>
-                        <button class="btn-reject">Recusar</button>
-                    </div>
-                </div>
+                <p style="color: #64748B;">Buscando novas solicitações...</p>
             </div>
         </section>
 
@@ -86,7 +62,7 @@
         &copy; 2026 Atlas Connect - FATEC Projeto Integrador.
     </footer>
 
-    <script src="../js/dashboard-mentor.js"></script>
+    <script src="/public/js/dashboard-mentor.js"></script>
 
 </body>
 </html>

@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     alert(`Solicitação enviada com sucesso, ${nome}!\nOs seus dados serão analisados pela equipa Atlas Connect.`);
                     // Redireciona para o login/home
-                    window.location.href = '../index.html'; 
+                    window.location.href = '/'; 
                 } else {
                     alert("Erro ao solicitar cadastro: " + (data.error || "Verifique os dados."));
                 }

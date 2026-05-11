@@ -10,20 +10,24 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// --- CONFIGURAÇÃO DE CAMINHOS (Recuperada e Reforçada) ---
-const publicPath = path.resolve(process.cwd(), 'public');
-app.use(express.static(publicPath));
+// --- CONFIGURAÇÃO DE CAMINHOS ---
+const rootPath = process.cwd(); 
+const publicPath = path.resolve(rootPath, 'public');
+
+// Servir arquivos estáticos (CSS, JS, Imagens)
+app.use('/public', express.static(publicPath));
 
 const JWT_SECRET = 'CHAVE_ATLAS_CONNECT_2026';
 
 async function startServer() {
     try {
+        // Banco de dados na raiz do projeto
         const db = await open({
-            filename: path.join(__dirname, 'database.db'),
+            filename: path.join(rootPath, 'database.db'),
             driver: sqlite3.Database
         });
 
-        // --- ESTRUTURA DO BANCO (Completa) ---
+        // --- ESTRUTURA DO BANCO ---
         await db.exec(`
             CREATE TABLE IF NOT EXISTS users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -106,7 +110,7 @@ async function startServer() {
             }
         });
 
-        // --- ROTAS DE API (MENTORIAS E SOLICITAÇÕES) ---
+        // --- ROTAS DE API ---
 
         app.get('/api/mentores/:pais', async (req, res) => {
             const { pais } = req.params;
@@ -179,14 +183,37 @@ async function startServer() {
             }
         });
 
-        // --- ROTAS DE NAVEGAÇÃO ---
+        // --- ROTAS DE NAVEGAÇÃO (PÁGINAS HTML) ---
 
-        app.get('/cadastro-mentor', (req, res) => {
-            res.sendFile(path.join(publicPath, 'pages', 'cadastro-profissional.html'));
+        // Rota para a raiz
+        app.get('/', (req, res) => {
+            res.sendFile(path.join(rootPath, 'index.html'));
         });
 
+        // ADICIONE ESTA AQUI: Rota específica para quem digitar /index.html
+        app.get('/index.html', (req, res) => {
+            res.redirect('/'); // Redireciona para a raiz para manter a URL limpa
+        });
+
+        // Páginas dentro de public/pages
         app.get('/paises', (req, res) => {
             res.sendFile(path.join(publicPath, 'pages', 'paises.html'));
+        });
+
+        app.get('/sobre', (req, res) => {
+            res.sendFile(path.join(publicPath, 'pages', 'sobre.html'));
+        });
+
+        app.get('/contato', (req, res) => {
+            res.sendFile(path.join(publicPath, 'pages', 'contato.html'));
+        });
+
+        app.get('/cadastro', (req, res) => {
+            res.sendFile(path.join(publicPath, 'pages', 'cadastro.html'));
+        });
+
+        app.get('/cadastro-profissional', (req, res) => {
+            res.sendFile(path.join(publicPath, 'pages', 'cadastro-profissional.html'));
         });
 
         app.get('/dashboard', (req, res) => {
@@ -201,17 +228,33 @@ async function startServer() {
             res.sendFile(path.join(publicPath, 'pages', 'listagem-mentores.html'));
         });
 
-        
-        app.get((req, res) => {
-            res.sendFile(path.join(publicPath, 'index.html'));
-        });
 
-        app.listen(3000, () => {
-            console.log(`🚀 Servidor a rodar em http://localhost:3000`);
+        // Captura qualquer tentativa de acessar .html diretamente e limpa a URL
+        app.use((req, res, next) => {
+            if (req.path.endsWith('.html')) {
+                const newPath = req.path.replace('.html', '');
+        // Se for index.html, vai para a raiz, senão vai para a rota sem .html
+            if (newPath === '/index') {
+                res.redirect(301, '/');
+            } else {
+                res.redirect(301, newPath);
+            }
+            }else {
+            next();
+                    }
+});
+
+
+        // Inicialização do Servidor
+        const PORT = 3000;
+        app.listen(PORT, () => {
+            console.log(`--- Atlas Connect System ---`);
+            console.log(`🚀 Rodando em: http://localhost:${PORT}`);
+            console.log(`📂 Pasta Pública: ${publicPath}`);
         });
 
     } catch (error) {
-        console.error("❌ Falha ao iniciar:", error);
+        console.error("❌ Erro fatal ao iniciar o servidor:", error);
     }
 }
 

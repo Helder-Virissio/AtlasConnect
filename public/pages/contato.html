@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtlasConnect - Intercâmbio Personalizado</title>
-    <!-- Caminho atualizado para a pasta css -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Contato - AtlasConnect</title>
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
 
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
-                <a href="index.html">
-                    <!-- Caminho atualizado para assets/images -->
-                    <img src="assets/images/logo-ac.svg" alt="Atlas Connect">
+                <a href="/">
+                    <img src="/public/assets/images/logo-ac.svg" alt="Atlas Connect">
                 </a>
             </div>
 
@@ -24,10 +22,10 @@
             
             <nav class="nav-menu" id="nav">
                 <ul class="nav-list">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="paises.html">Países</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/paises">Países</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <li><a href="/contato">Contato</a></li>
                 </ul>
             </nav>
 
@@ -35,11 +33,8 @@
                 <a href="#" class="login-link">Login ▾</a>
                 <div class="dropdown-content login-box" id="dropdown-login">
                     <p class="login-title">Faça seu login ou cadastre-se</p>
-        
-                    <!-- IDs importantes para o script.js -->
                     <input type="email" id="login-email" placeholder="E-mail">
                     <input type="password" id="login-password" placeholder="Senha">
-        
                     <div class="login-actions">
                         <button class="btn btn-primary btn-entrar" id="btn-entrar">Entrar</button>
                         <button class="btn btn-secondary btn-cadastrar" id="btn-cadastrar">Cadastrar</button>
@@ -49,48 +44,36 @@
         </div>
     </header>
 
-    
+    <main class="container">
+        <section style="padding: 50px 20px; text-align: center;">
+            <h1 style="color: var(--yale-blue);">Fale Conosco</h1>
+            <p>Dúvidas sobre o Atlas Connect? Nossa equipe está pronta para ajudar.</p>
+            
+            </section>
+    </main>
 
-    <!-- Importante: O script deve vir por último -->
-    <script src="js/script.js" defer></script>
+    <script src="/public/js/script.js" defer></script>
 </body>
+
 <footer class="footer-atlas">
     <div class="footer-inner">
         <div class="footer-column footer-info">
-            <img src="assets/images/logo-ac.png" alt="Atlas Connect" class="f-logo">
+            <img src="/public/assets/images/logo-ac.png" alt="Atlas Connect" class="f-logo">
             <p>Conectando bolsistas a oportunidades com transparência e automação.</p>
-            <div class="f-socials">
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>   
+        </div> 
 
         <div class="footer-column footer-nav">
             <h4>Atlas Connect</h4>
             <ul>
-                <li><a href="#">Nossa Tecnologia</a></li>
-                <li><a href="#">Privacidade (LGPD)</a></li>
                 <li><a href="#">Suporte ao Aluno</a></li>
                 <li><a href="#">Fale Conosco</a></li>
             </ul>
-        </div>
-
-        <div class="footer-column footer-status">
-            <div class="status-card">
-                <span class="status-label">Plataforma</span>
-                <div class="status-rating">★★★★★</div>
-                <p>Processos 100% Auditados</p>
-            </div>
         </div>
     </div>
 
     <div class="footer-copyright">
         <div class="copy-content">
             <p>&copy; 2026 Atlas Connect. Todos os direitos reservados.</p>
-            <div class="copy-legal">
-                <a href="#">Privacidade</a>
-                <a href="#">Termos de Uso</a>
-            </div>
         </div>
     </div>
 </footer>
