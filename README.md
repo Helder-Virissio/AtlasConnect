@@ -16,7 +16,7 @@
 
 - 👨‍💻 **Helder Virissio**  
 - 👨‍💻 **Michael Douglas**  
-- 👩‍💻 **Yasmin Rodrigues**  
+- 👩‍💻 **Yasmin Rodrigues**  https://github.com/yasminandrade8
 - 👨‍💻 **Luiz Fernando**  
 
 ## 📸 Preview do Sistema
